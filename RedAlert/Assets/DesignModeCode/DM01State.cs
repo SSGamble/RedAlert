@@ -68,6 +68,7 @@ public class ConcreteStateA : IState
         Debug.Log("ConcreateStateA.Handle " + hour + "工作");
         if (hour > 23 || hour < 6)
         {
+            Debug.Log("A -> B");
             mContext.SetState(new ConcreteStateB(mContext)); // 设置下一状态 B
         }
     }
@@ -90,7 +91,7 @@ public class ConcreteStateB : IState
         Debug.Log("ConcreateStateB.Handle " + hour + "睡觉");
         if (hour >= 6 && hour <= 23) // 6-23 点，工作
         {
-
+            Debug.Log("B -> A");
             mContext.SetState(new ConcreteStateA(mContext));  // 设置下一状态 A
         }
     }

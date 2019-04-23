@@ -12,9 +12,8 @@ public class MainMenuState : ISceneState
 
     }
 
-    public override void SceneStart()
+    public override void StateStart()
     {
-        Debug.Log("===");
         // 添加按钮的监听事件
         GameObject.Find("BtnStart").GetComponent<Button>().onClick.AddListener(OnStartButtonClick);
     }
@@ -24,7 +23,6 @@ public class MainMenuState : ISceneState
     /// </summary>
     private void OnStartButtonClick()
     {
-        Debug.Log("000");
         mStateController.SetState(new BattleState(mStateController));
     }
 }

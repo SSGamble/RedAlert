@@ -13,12 +13,14 @@ public class GameLoop : MonoBehaviour {
     }
 
     void Start () {
+        // 状态控制器对象
         controller = new SceneStateController();
         // 设置默认(当前)状态为开始状态，设置默认状态的时候是不需要加载场景的
         controller.SetState(new StartState(controller),false);
     }
 	
 	void Update () {
-        controller.StateUpdate();
+        if (controller != null)
+            controller.StateUpdate();
 	}
 }
